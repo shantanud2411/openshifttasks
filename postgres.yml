@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: mydep2
+  name: mydep2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mydep2
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: mydep2
+    spec:
+      containers:
+      - image: bitnami/postgresql
+        name: postgresql
+        env:
+          - name: POSTGRES_PASSWORD
+            value: redhat
+          - name: POSTGRES_DB
+            value: database2
+        resources: {}
+status: {}
